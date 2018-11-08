@@ -36,6 +36,10 @@ parser.add_argument(
 args = parser.parse_args()
 
 
+"""
+Eric: You are using 0-based indexing for columns instead of 1-based as requested
+"""
+
 def load_data(fpath, x, y, z=None):
     '''Load Data'''
     f = open(fpath, 'r')
@@ -56,7 +60,6 @@ def load_data(fpath, x, y, z=None):
         'data': [xs, ys, zs],
         'columns': [cols[x], cols[y], zheader]
     }
-
 
 
 def draw(data, output, xlabel=None, ylabel=None):
@@ -91,7 +94,7 @@ def draw(data, output, xlabel=None, ylabel=None):
     if len(series) > 1:
         plt.legend(scatters, names)
     plt.savefig(output)
-    
+  
 
 
 if __name__ == '__main__':
